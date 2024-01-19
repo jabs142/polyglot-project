@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import HomePage from "./components/HomePage";
+import MuseumPage from "./components/Art/MuseumPage";
+import PolyglotPage from "./components/Polyglot/PolyglotPage";
+import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PopChoicePage from "./components/PopChoice/PopChoicePage";
+import AssistantsPage from "./components/Assistants/AssistantsPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <header>
+          <Navigation />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/museum" element={<MuseumPage />} />
+            <Route path="/polyglot" element={<PolyglotPage />} />
+            <Route path="/popchoice" element={<PopChoicePage />} />
+            <Route path="/assistants" element={<AssistantsPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
